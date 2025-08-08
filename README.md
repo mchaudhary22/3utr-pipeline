@@ -5,19 +5,22 @@ A one-step 3' UTR single-cell RNA-seq analysis pipeline using Cell Ranger and St
 This pipeline performs the following steps:
 
 -**Initial Cell Ranger count** - Standard gene expression quantification
+
 -**CDS-only analysis** - Extracts coding sequence regions and creates CDS-specific reference
+
 -**StringTie assembly** - Identifies novel transcript isoforms and 3' UTR regions
+
 -**Final quantification** - Re-quantifies using the improved reference with identified 3' UTRs
 
 # Docker Image
 Pre-built Docker image is available at: 
-'''
+```
 mchaudhary22/3utr-pipeline:latest
-'''
+```
 
 # Input Requirements
 Your input directory must contain:
-  # For each sample:
+  ## For each sample:
     Sequencing data: Place SRR data in folders named with SRR IDs (e.g., SRR8257100/)
     
     - SRR_ID_1.fastq.gz (or .fastq) - Read 1
@@ -25,13 +28,13 @@ Your input directory must contain:
     - SRR_ID_3.fastq.gz (or .fastq) - Index reads (optional)
 
 
-  # Reference files:
+  ## Reference files:
 
    - Genome FASTA: GENOME_NAME.fa (or .fasta)
    - Annotation GFF3: GENOME_NAME.gff3 (or .gff)
 
-  #  For multiple samples:
-    Sample list: srr_list.txt containing one SRR ID per line
+  ##  For multiple samples:
+      Sample list: srr_list.txt containing one SRR ID per line
 
 # Output
 The pipeline generates several outputs for each sample:
@@ -42,14 +45,13 @@ The pipeline generates several outputs for each sample:
 - {SRR_ID}_stringtie_matrix/ - Final results with 3' UTR quantification
 
 # Usage
-  # Prerequisites
-
+  ## Prerequisites
     - Apptainer/Singularity installed on your system
     - Input files prepared as described above
 
-  # Running with Apptainer
-    # Single Sample
-      ```
+  ## Running with Apptainer
+    ## Single Sample
+      ```bash
       # Build the container 
       apptainer build 3utr_pipeline.sif docker://mchaudhary22/3utr-pipeline:latest
       
@@ -59,4 +61,4 @@ The pipeline generates several outputs for each sample:
         --bind /path/to/output:/app/output \
         3utr_pipeline.sif \
         /app/run_pipeline.sh -s <SRR_Sample_ID> -c <Expected_Cells> -g <Genome_Name>
-      ```
+      ```bash
