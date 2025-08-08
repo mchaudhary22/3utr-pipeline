@@ -79,7 +79,8 @@ apptainer run \
 ## SLURM Integration
 For HPC environments, use the provided SLURM script and modify the paths and parameters according to your system:
 
-```
+```bash
 # Edit the script paths and parameters
 sbatch script/3utr_pipeline.sh
-```
+
+
