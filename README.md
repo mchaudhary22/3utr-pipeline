@@ -61,4 +61,25 @@ apptainer run \
   3utr_pipeline.sif \
   /app/run_pipeline.sh -s <SRR_Sample_ID> -c <Expected_Cells> -g <Genome_Name>
       
- 
+#### Multiple Samples
+```bash
+apptainer run \
+  --bind /path/to/input:/app/input \
+  --bind /path/to/output:/app/output \
+  3utr_pipeline.sif \
+  /app/run_pipeline.sh -l /app/input/srr_list.txt -c <Expected_Cells> -g <Genome_Name> 
+
+### Parameters
+-s SRR_ID: Single SRR accession to process
+-l SRR_LIST_FILE: Path to file containing multiple SRR IDs (one per line)
+-c EXPECTED_CELLS: Expected number of cells (default: 1800000)
+-g GENOME_NAME: Species/genome name (must match your input file names)
+-h: Display help message
+
+## SLURM Integration
+For HPC environments, use the provided SLURM script and modify the paths and parameters according to your system:
+
+```
+# Edit the script paths and parameters
+sbatch script/3utr_pipeline.sh
+```
