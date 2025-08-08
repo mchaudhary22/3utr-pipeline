@@ -61,4 +61,4 @@ apptainer run \
   3utr_pipeline.sif \
   /app/run_pipeline.sh -s <SRR_Sample_ID> -c <Expected_Cells> -g <Genome_Name>
       
- ```bash
+ 
