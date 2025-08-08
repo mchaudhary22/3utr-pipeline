@@ -29,7 +29,7 @@ Your input directory must contain:
 - **Genome FASTA**: GENOME_NAME.fa (or .fasta)
 - **Annotation GFF3**: GENOME_NAME.gff3 (or .gff)
 
-###  For multiple samples:
+### For multiple samples:
 **Sample list**: srr_list.txt containing one SRR ID per line
 
 ## Output
@@ -48,9 +48,9 @@ The pipeline generates several outputs for each sample:
 - Input files prepared as described above
 
 ### Running with Apptainer
+
 #### Single Sample
 ```bash
-
 # Build the container
 apptainer build 3utr_pipeline.sif docker://mchaudhary22/3utr-pipeline:latest
       
@@ -71,16 +71,18 @@ apptainer run \
   /app/run_pipeline.sh -l /app/input/srr_list.txt -c <Expected_Cells> -g <Genome_Name> 
 
 
-### Parameters
--s SRR_ID: Single SRR accession to process
--l SRR_LIST_FILE: Path to file containing multiple SRR IDs (one per line)
--c EXPECTED_CELLS: Expected number of cells (default: 1800000)
--g GENOME_NAME: Species/genome name (must match your input file names)
--h: Display help message
+## Parameters
+- `-s SRR_ID: Single SRR accession to process
+- `-l SRR_LIST_FILE: Path to file containing multiple SRR IDs (one per line)
+- `-c EXPECTED_CELLS: Expected number of cells (default: 1800000)
+- `-g GENOME_NAME: Species/genome name (must match your input file names)
+- `-h: Display help message
 
 
 ## SLURM Integration
+
 For HPC environments, use the provided SLURM script and modify the paths and parameters according to your system:
+
 ```bash
 # Edit the script paths and parameters
 sbatch script/3utr_pipeline.sh
