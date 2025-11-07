@@ -12,7 +12,7 @@ This pipeline performs the following steps:
 ## Docker Image
 Pre-built Docker image is available at: 
 ```
-mchaudhary22/3utr-pipeline:latest
+mchaudhary22/3utr-pipeline-v1:latest
 ```
 
 ## Input Requirements
