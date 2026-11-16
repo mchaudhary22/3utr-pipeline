@@ -1,0 +1,4 @@
+# Example sample list for list mode (-l). One SRR ID per line.
+# Lines starting with # and blank lines are skipped.
+SRR0000001
+SRR0000002

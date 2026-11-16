@@ -1,0 +1,43 @@
+# Pipeline outputs
+output/
+outputs/
+reference/
+*_matrix/
+*_genome/
+*.gtf
+*.tsv
+*.fai
+*.bam
+*.bai
+
+# Container images
+*.sif
+
+# Input data
+input/
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.fa
+*.fasta
+*.fna
+*.gff
+*.gff3
+
+# Cell Ranger tarballs (download from 10x Genomics; never commit)
+cellranger-*.tar.gz
+cellranger-*.tar
+
+# SLURM logs
+*.out
+*.err
+
+# Python
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

@@ -1,4 +1,1 @@
-argparse
-pandas
-numpy
-biopython
+# UTRex uses only the Python standard library. No extra packages are needed.
